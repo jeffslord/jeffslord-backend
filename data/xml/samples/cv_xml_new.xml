@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" schemaVersion="2.3" id="CV_1" applyPrivilegeType="ANALYTIC_PRIVILEGE" checkAnalyticPrivileges="true" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection">
+  <origin/>
+  <descriptions defaultDescription="CV_1"/>
+  <localVariables>
+    <variable id="INP_TEST" parameter="true">
+      <descriptions defaultDescription="INP_TEST"/>
+      <variableProperties datatype="INTEGER" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="false" type="SingleValue"/>
+        <defaultRange/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#CV_2">
+      <targetVariable name="INP_TEST" resourceUri="/test_jeff/calculationviews/CV_2"/>
+      <localVariable>#INP_TEST</localVariable>
+    </mapping>
+  </variableMappings>
+  <informationModelLayout relativeWidthScenario="35"/>
+  <dataSources>
+    <DataSource id="SFLIGHT" type="DATA_BASE_TABLE">
+      <viewAttributes allViewAttributes="true"/>
+      <columnObject schemaName="SAPA4H" columnObjectName="SFLIGHT"/>
+    </DataSource>
+    <DataSource id="CV_2" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/test_jeff/calculationviews/CV_2</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSOCC_F"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#SFLIGHT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_5">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSOCC_F"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_5_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="SEATSOCC_F"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="PAYMENTSUM"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_5">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CARRID_1"/>
+        <viewAttribute id="SEATSOCC_F"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="PAYMENTSUM"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_3">
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID_1" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+      </input>
+      <input node="#Projection_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      </input>
+      <joinAttribute name="CARRID"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_4">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSOCC_F"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#CV_2">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CARRID_1"/>
+        <viewAttribute id="SEATSOCC_F"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input emptyUnionBehavior="NO_ROW" node="#Join_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID_1" source="CARRID_1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CURRENCY" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="PLANETYPE" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSMAX" null="true" value=""/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="SEATSOCC" null="true" value=""/>
+      </input>
+      <input emptyUnionBehavior="NO_ROW" node="#Projection_4">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="CARRID_1" null="true" value=""/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_5_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSOCC_F"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#Projection_1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1_1">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="MANDT"/>
+        <viewAttribute id="CARRID"/>
+        <viewAttribute id="CONNID"/>
+        <viewAttribute id="FLDATE"/>
+        <viewAttribute id="PRICE"/>
+        <viewAttribute id="CURRENCY"/>
+        <viewAttribute id="PLANETYPE"/>
+        <viewAttribute id="SEATSMAX"/>
+        <viewAttribute id="SEATSOCC"/>
+        <viewAttribute id="PAYMENTSUM"/>
+        <viewAttribute id="SEATSOCC_B"/>
+        <viewAttribute id="SEATSMAX_B"/>
+        <viewAttribute id="SEATSMAX_F"/>
+        <viewAttribute id="SEATSOCC_F"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#SFLIGHT">
+        <mapping xsi:type="Calculation:AttributeMapping" target="MANDT" source="MANDT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CARRID" source="CARRID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CONNID" source="CONNID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FLDATE" source="FLDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY" source="CURRENCY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PLANETYPE" source="PLANETYPE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX" source="SEATSMAX"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC" source="SEATSOCC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PAYMENTSUM" source="PAYMENTSUM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_B" source="SEATSOCC_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_B" source="SEATSMAX_B"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSMAX_F" source="SEATSMAX_F"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SEATSOCC_F" source="SEATSOCC_F"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Union_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="MANDT" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MANDT"/>
+        <keyMapping columnObjectName="Union_1" columnName="MANDT"/>
+      </attribute>
+      <attribute id="CONNID" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CONNID"/>
+        <keyMapping columnObjectName="Union_1" columnName="CONNID"/>
+      </attribute>
+      <attribute id="CARRID" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CARRID"/>
+        <keyMapping columnObjectName="Union_1" columnName="CARRID"/>
+      </attribute>
+      <attribute id="FLDATE" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FLDATE"/>
+        <keyMapping columnObjectName="Union_1" columnName="FLDATE"/>
+      </attribute>
+      <attribute id="CARRID_1" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CARRID_1"/>
+        <keyMapping columnObjectName="Union_1" columnName="CARRID_1"/>
+      </attribute>
+      <attribute id="CURRENCY" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="CURRENCY"/>
+        <keyMapping columnObjectName="Union_1" columnName="CURRENCY"/>
+      </attribute>
+      <attribute id="PLANETYPE" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="PLANETYPE"/>
+        <keyMapping columnObjectName="Union_1" columnName="PLANETYPE"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="PRICE" order="4" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="PRICE"/>
+        <measureMapping columnObjectName="Union_1" columnName="PRICE"/>
+      </measure>
+      <measure id="SEATSOCC_F" order="7" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSOCC_F"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSOCC_F"/>
+      </measure>
+      <measure id="SEATSMAX_F" order="8" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSMAX_F"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSMAX_F"/>
+      </measure>
+      <measure id="SEATSMAX_B" order="9" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSMAX_B"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSMAX_B"/>
+      </measure>
+      <measure id="SEATSOCC_B" order="10" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSOCC_B"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSOCC_B"/>
+      </measure>
+      <measure id="PAYMENTSUM" order="11" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="PAYMENTSUM"/>
+        <measureMapping columnObjectName="Union_1" columnName="PAYMENTSUM"/>
+      </measure>
+      <measure id="SEATSMAX" order="14" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSMAX"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSMAX"/>
+      </measure>
+      <measure id="SEATSOCC" order="15" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SEATSOCC"/>
+        <measureMapping columnObjectName="Union_1" columnName="SEATSOCC"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="175" y="87"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="533"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_5" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="99" y="455"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="22" y="377"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="176" y="377"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="98" y="281"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_4" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="252" y="281"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="175" y="165"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

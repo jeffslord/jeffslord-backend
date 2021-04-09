@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" 
+  xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" schemaVersion="2.3" id="TFCT_WHL_FRT_ORD_LINE_V1" applyPrivilegeType="NONE" checkAnalyticPrivileges="false" defaultClient="crossClient" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" translationRelevant="true" visibility="reportingEnabled" calculationScenarioType="TREE_BASED" dataCategory="CUBE" enforceSqlExecution="true" executionSemantic="UNDEFINED">
+  <descriptions defaultDescription="Freight Order Line "/>
+  <metadata changedAt="2018-09-26 17:59:09.539"/>
+  <localVariables>
+    <variable id="IN_MTRL" parameter="true">
+      <descriptions defaultDescription="IN_MTRL"/>
+      <variableProperties datatype="NVARCHAR" length="20" mandatory="false">
+        <valueDomain type="empty"/>
+        <selection multiLine="true" type="SingleValue"/>
+      </variableProperties>
+    </variable>
+  </localVariables>
+  <variableMappings>
+    <mapping xsi:type="Variable:VariableMapping" dataSource="#TFCT_WHL_FRT_ORD_LINE_DOC_DTL_V1">
+      <targetVariable name="IN_MTRL" resourceUri="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_DOC_DTL_V1"/>
+      <localVariable>#IN_MTRL</localVariable>
+    </mapping>
+  </variableMappings>
+  <informationModelLayout relativeWidthScenario="46"/>
+  <dataSources>
+    <DataSource id="TFCT_WHL_FRT_ORD_LINE_DOC_DTL_V1" type="CALCULATION_VIEW">
+      <viewAttributes allViewAttributes="true"/>
+      <resourceUri>/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_DOC_DTL_V1</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="FRT_ORD_LINE_DOC_DTL">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="STO_DOC"/>
+        <viewAttribute id="STO_DOC_LINE_ITEM"/>
+        <viewAttribute id="SALES_ORD_DOC"/>
+        <viewAttribute id="SALES_ORD_DOC_LINE_ITEM"/>
+        <viewAttribute id="FRT_ORD_DOC"/>
+        <viewAttribute id="FRT_ORD_DOC_LINE_ITEM"/>
+        <viewAttribute id="FRT_ORD_LINE_GRS_VOL"/>
+        <viewAttribute id="FRT_ORD_LINE_GRS_VOL_UOM"/>
+        <viewAttribute id="FRT_ORD_LINE_GRS_WT"/>
+        <viewAttribute id="FRT_ORD_LINE_GRS_WT_UOM"/>
+        <viewAttribute id="FRT_ORD_LINE_NET_WT"/>
+        <viewAttribute id="FRT_ORD_LINE_NET_WT_UOM"/>
+        <viewAttribute id="FRT_ORD_LINE_PIECE_QTY"/>
+        <viewAttribute id="FRT_ORD_LINE_PIECE_UOM"/>
+        <viewAttribute id="SRC_STOP_KEY"/>
+        <viewAttribute id="MTRL"/>
+        <viewAttribute id="TORITE_DB_KEY"/>
+        <viewAttribute id="TORROT_DB_KEY"/>
+        <viewAttribute id="SRC_OWNER"/>
+        <viewAttribute id="FU_ROOT_KEY"/>
+        <viewAttribute id="DELV_DOC_OUTBOUND"/>
+        <viewAttribute id="DELV_DOC_LINE_OUTBOUND"/>
+        <viewAttribute id="PARENT_KEY"/>
+        <viewAttribute id="DEST_STOP_KEY"/>
+        <viewAttribute id="FRT_ORD_CAT"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#TFCT_WHL_FRT_ORD_LINE_DOC_DTL_V1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="STO_DOC" source="STO_DOC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="STO_DOC_LINE_ITEM" source="STO_DOC_LINE_ITEM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORD_DOC" source="SALES_ORD_DOC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SALES_ORD_DOC_LINE_ITEM" source="SALES_ORD_DOC_LINE_ITEM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_DOC" source="FRT_ORD_DOC"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_DOC_LINE_ITEM" source="FRT_ORD_DOC_LINE_ITEM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_GRS_VOL" source="FRT_ORD_LINE_GRS_VOL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_GRS_VOL_UOM" source="FRT_ORD_LINE_GRS_VOL_UOM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_GRS_WT" source="FRT_ORD_LINE_GRS_WT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_GRS_WT_UOM" source="FRT_ORD_LINE_GRS_WT_UOM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_NET_WT" source="FRT_ORD_LINE_NET_WT"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_NET_WT_UOM" source="FRT_ORD_LINE_NET_WT_UOM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_PIECE_QTY" source="FRT_ORD_LINE_PIECE_QTY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_LINE_PIECE_UOM" source="FRT_ORD_LINE_PIECE_UOM"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SRC_STOP_KEY" source="SRC_STOP_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="MTRL" source="MTRL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TORITE_DB_KEY" source="TORITE_DB_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="TORROT_DB_KEY" source="TORROT_DB_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SRC_OWNER" source="SRC_OWNER"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FU_ROOT_KEY" source="FU_ROOT_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DELV_DOC_OUTBOUND" source="DELV_DOC_OUTBOUND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DELV_DOC_LINE_OUTBOUND" source="DELV_DOC_LINE_OUTBOUND"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="PARENT_KEY" source="PARENT_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="DEST_STOP_KEY" source="DEST_STOP_KEY"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="FRT_ORD_CAT" source="FRT_ORD_CAT"/>
+      </input>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="FRT_ORD_LINE_DOC_DTL">
+    <descriptions/>
+    <attributes>
+      <attribute id="STO_DOC" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STO_DOC"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="STO_DOC"/>
+      </attribute>
+      <attribute id="STO_DOC_LINE_ITEM" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="STO_DOC_LINE_ITEM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="STO_DOC_LINE_ITEM"/>
+      </attribute>
+      <attribute id="SALES_ORD_DOC" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SALES_ORD_DOC"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="SALES_ORD_DOC"/>
+      </attribute>
+      <attribute id="SALES_ORD_DOC_LINE_ITEM" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SALES_ORD_DOC_LINE_ITEM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="SALES_ORD_DOC_LINE_ITEM"/>
+      </attribute>
+      <attribute id="FRT_ORD_DOC" order="5" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_DOC"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_DOC"/>
+      </attribute>
+      <attribute id="FRT_ORD_DOC_LINE_ITEM" order="6" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_DOC_LINE_ITEM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_DOC_LINE_ITEM"/>
+      </attribute>
+      <attribute id="FRT_ORD_LINE_GRS_VOL_UOM" order="7" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_LINE_GRS_VOL_UOM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_GRS_VOL_UOM"/>
+      </attribute>
+      <attribute id="FRT_ORD_LINE_GRS_WT_UOM" order="8" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_LINE_GRS_WT_UOM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_GRS_WT_UOM"/>
+      </attribute>
+      <attribute id="FRT_ORD_LINE_NET_WT_UOM" order="9" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_LINE_NET_WT_UOM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_NET_WT_UOM"/>
+      </attribute>
+      <attribute id="FRT_ORD_LINE_PIECE_UOM" order="10" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_LINE_PIECE_UOM"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_PIECE_UOM"/>
+      </attribute>
+      <attribute id="MTRL" order="11" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="MTRL"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="MTRL"/>
+      </attribute>
+      <attribute id="TORROT_DB_KEY" order="12" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="TORROT_DB_KEY"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="TORROT_DB_KEY"/>
+      </attribute>
+      <attribute id="SRC_OWNER" order="13" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SRC_OWNER"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="SRC_OWNER"/>
+      </attribute>
+      <attribute id="DELV_DOC_OUTBOUND" order="14" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DELV_DOC_OUTBOUND"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="DELV_DOC_OUTBOUND"/>
+      </attribute>
+      <attribute id="DELV_DOC_LINE_OUTBOUND" order="15" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DELV_DOC_LINE_OUTBOUND"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="DELV_DOC_LINE_OUTBOUND"/>
+      </attribute>
+      <attribute id="FRT_ORD_CAT" order="21" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FRT_ORD_CAT"/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_CAT"/>
+      </attribute>
+      <attribute id="DEST_STOP_KEY$local">
+        <descriptions/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="DEST_STOP_KEY"/>
+      </attribute>
+      <attribute id="SRC_STOP_KEY$local">
+        <descriptions/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="SRC_STOP_KEY"/>
+      </attribute>
+      <attribute id="FU_ROOT_KEY$local">
+        <descriptions/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FU_ROOT_KEY"/>
+      </attribute>
+      <attribute id="PARENT_KEY$local">
+        <descriptions/>
+        <keyMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="PARENT_KEY"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="FWD_ORD" hidden="false" order="20" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="FWD_ORD"/>
+        <keyCalculation datatype="NVARCHAR" expressionLanguage="COLUMN_ENGINE" length="35">
+          <formula>IF(&quot;TRQ_CAT&quot;='03',&quot;TRQ_ID&quot;,'')</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="FRT_ORD_LINE_PIECE_QTY" order="16" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="FRT_ORD_LINE_PIECE_QTY"/>
+        <measureMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_PIECE_QTY"/>
+      </measure>
+      <measure id="FRT_ORD_LINE_NET_WT" order="17" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="FRT_ORD_LINE_NET_WT"/>
+        <measureMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_NET_WT"/>
+      </measure>
+      <measure id="FRT_ORD_LINE_GRS_WT" order="18" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="FRT_ORD_LINE_GRS_WT"/>
+        <measureMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_GRS_WT"/>
+      </measure>
+      <measure id="FRT_ORD_LINE_GRS_VOL" order="19" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="FRT_ORD_LINE_GRS_VOL"/>
+        <measureMapping columnObjectName="FRT_ORD_LINE_DOC_DTL" columnName="FRT_ORD_LINE_GRS_VOL"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+    <sharedDimensions>
+      <logicalJoin associatedObjectUri="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_STP_DEST_V1">
+        <attributes>
+          <attributeRef>#DEST_STOP_KEY$local</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>TORSTP_DB_KEY</attributeName>
+        </associatedAttributeNames>
+        <properties cardinality="CN_1" joinOperator="Equal" joinType="leftOuter" optimizeJoinColumns="true"/>
+        <associatedAttributeFeatures/>
+      </logicalJoin>
+      <logicalJoin associatedObjectUri="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_STP_SRC_V1">
+        <attributes>
+          <attributeRef>#SRC_STOP_KEY$local</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>TORSTP_DB_KEY</attributeName>
+        </associatedAttributeNames>
+        <properties cardinality="CN_1" joinOperator="Equal" joinType="leftOuter" optimizeJoinColumns="true"/>
+        <associatedAttributeFeatures>
+          <attributeReference alias="TFCT_WHL_EDM_FRT_ORD_LINE_STP_SRC_V1_TORSTP_DB_KEY" attributeName="TORSTP_DB_KEY"/>
+        </associatedAttributeFeatures>
+      </logicalJoin>
+      <logicalJoin associatedObjectUri="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_TORROT_FU_V1">
+        <attributes>
+          <attributeRef>#FU_ROOT_KEY$local</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>DB_KEY</attributeName>
+        </associatedAttributeNames>
+        <properties cardinality="CN_1" joinOperator="Equal" joinType="leftOuter" optimizeJoinColumns="true"/>
+        <associatedAttributeFeatures/>
+      </logicalJoin>
+      <logicalJoin associatedObjectUri="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_TRQROT_V1">
+        <attributes>
+          <attributeRef>#PARENT_KEY$local</attributeRef>
+        </attributes>
+        <associatedAttributeNames>
+          <attributeName>DB_KEY</attributeName>
+        </associatedAttributeNames>
+        <properties cardinality="CN_1" joinOperator="Equal" joinType="leftOuter" optimizeJoinColumns="true"/>
+        <associatedAttributeFeatures>
+          <attributeReference alias="TFCT_WHL_EDM_FRT_ORD_TRQROT_V1_DB_KEY" attributeName="DB_KEY"/>
+        </associatedAttributeFeatures>
+      </logicalJoin>
+    </sharedDimensions>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="22" y="87"/>
+        <rectangleSize height="156" width="259"/>
+      </shape>
+      <shape expanded="true" modelObjectName="FRT_ORD_LINE_DOC_DTL" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="24" y="257"/>
+        <rectangleSize height="64" width="255"/>
+      </shape>
+      <shape modelObjectName="FRT_ORD_LINE_DOC_DTL" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+        <upperLeftCorner x="559" y="144"/>
+      </shape>
+      <shape modelObjectName="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_STP_DEST_V1" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+        <upperLeftCorner x="16" y="366"/>
+      </shape>
+      <shape modelObjectName="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_LINE_STP_SRC_V1" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+        <upperLeftCorner x="887" y="160"/>
+      </shape>
+      <shape modelObjectName="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_TORROT_FU_V1" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+        <upperLeftCorner x="16" y="16"/>
+      </shape>
+      <shape modelObjectName="/EAP.integration.TY-WHL/calculationviews/TFCT_WHL_FRT_ORD_TRQROT_V1" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+        <upperLeftCorner x="16" y="175"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

@@ -1,0 +1,92 @@
+{
+    "Calculation:scenario": {
+        "$": {
+            "xmlns:Calculation": "http://www.sap.com/ndb/BiModelCalculation.ecore",
+            "id": "StudentApp.StudentDB::cv_hint",
+            "applyPrivilegeType": "NONE",
+            "dataCategory": "DIMENSION",
+            "dimensionType": "STANDARD",
+            "schemaVersion": "3.0",
+            "outputViewType": "Projection",
+            "cacheInvalidationPeriod": "NONE",
+            "enforceSqlExecution": "false"
+        },
+        "descriptions": [
+            {
+                "$": {
+                    "defaultDescription": "cv_hint"
+                }
+            }
+        ],
+        "localVariables": [
+            ""
+        ],
+        "variableMappings": [
+            ""
+        ],
+        "executionHints": [
+            {
+                "$": {
+                    "name": "hint_1",
+                    "value": "true"
+                }
+            },
+            {
+                "$": {
+                    "name": "hint_2",
+                    "value": "false"
+                }
+            }
+        ],
+        "dataSources": [
+            ""
+        ],
+        "calculationViews": [
+            ""
+        ],
+        "logicalModel": [
+            {
+                "attributes": [
+                    ""
+                ],
+                "calculatedAttributes": [
+                    ""
+                ],
+                "baseMeasures": [
+                    ""
+                ],
+                "calculatedMeasures": [
+                    ""
+                ],
+                "restrictedMeasures": [
+                    ""
+                ]
+            }
+        ],
+        "layout": [
+            {
+                "shapes": [
+                    {
+                        "shape": [
+                            {
+                                "$": {
+                                    "expanded": "true",
+                                    "modelObjectName": "Output",
+                                    "modelObjectNameSpace": "MeasureGroup"
+                                },
+                                "upperLeftCorner": [
+                                    {
+                                        "$": {
+                                            "x": "40",
+                                            "y": "85"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="Test.test_db::cv_union" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false" pruningTable="">
+  <descriptions defaultDescription="cv_union"/>
+  <localVariables/>
+  <variableMappings/>
+  <dataSources>
+    <DataSource id="Test.test_db::cv_integration1">
+      <resourceUri>Test.test_db::cv_integration1</resourceUri>
+    </DataSource>
+    <DataSource id="Test.test_db::cv_integration2">
+      <resourceUri>Test.test_db::cv_integration2</resourceUri>
+    </DataSource>
+    <DataSource id="Projection_3$$$$Test.test_db::cv_integration1$$">
+      <resourceUri>Test.test_db::cv_integration1</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+      <viewAttributes>
+        <viewAttribute id="FISCAL_YEAR"/>
+        <viewAttribute id="VALUE1"/>
+        <viewAttribute id="VALUE2"/>
+        <viewAttribute id="ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="Test.test_db::cv_integration1"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_2">
+      <viewAttributes>
+        <viewAttribute id="FISCAL_YEAR"/>
+        <viewAttribute id="VALUE3"/>
+        <viewAttribute id="VALUE4"/>
+        <viewAttribute id="ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="Test.test_db::cv_integration2"/>
+    </calculationView>
+    <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+      <viewAttributes>
+        <viewAttribute id="FISCAL_YEAR"/>
+        <viewAttribute id="VALUE1"/>
+        <viewAttribute id="VALUE2"/>
+        <viewAttribute id="ID"/>
+        <viewAttribute datatype="INTEGER" id="MYYEAR"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="Projection_1" emptyUnionBehavior="NO_ROW">
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR" source="FISCAL_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="MYYEAR" null="false" value="2019"/>
+      </input>
+      <input node="Projection_2" emptyUnionBehavior="NO_ROW">
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR" source="FISCAL_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE1" source="VALUE3"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE2" source="VALUE4"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="MYYEAR" null="false" value="2018"/>
+      </input>
+
+      <input node="Projection_3" emptyUnionBehavior="NO_ROW">
+        <mapping xsi:type="Calculation:AttributeMapping" target="FISCAL_YEAR" source="FISCAL_YEAR"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE1" source="VALUE1"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="VALUE2" source="VALUE2"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+
+        <mapping xsi:type="Calculation:ConstantAttributeMapping" target="MYYEAR" null="false" value="2017"/>
+
+      </input>
+    </calculationView>
+    <calculationView xsi:type="Calculation:ProjectionView" id="Projection_3">
+      <viewAttributes>
+        <viewAttribute id="FISCAL_YEAR"/>
+        <viewAttribute id="VALUE1"/>
+        <viewAttribute id="VALUE2"/>
+        <viewAttribute id="ID"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <restrictedViewAttributes/>
+      <input node="Projection_3$$$$Test.test_db::cv_integration1$$"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Union_1">
+    <attributes>
+      <attribute id="FISCAL_YEAR" order="1" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="FISCAL_YEAR"/>
+        <keyMapping columnObjectName="Union_1" columnName="FISCAL_YEAR"/>
+      </attribute>
+      <attribute id="VALUE2" order="3" displayAttribute="false" attributeHierarchyActive="false" semanticType="empty">
+        <descriptions defaultDescription="VALUE2"/>
+        <keyMapping columnObjectName="Union_1" columnName="VALUE2"/>
+      </attribute>
+      <attribute id="ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+        <descriptions defaultDescription="ID"/>
+        <keyMapping columnObjectName="Union_1" columnName="ID"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <baseMeasures>
+      <measure id="VALUE1" order="2" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="VALUE1"/>
+        <measureMapping columnObjectName="Union_1" columnName="VALUE1"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="361" y="112"/>
+
+        <rectangleSize width="160"/>
+      </shape>
+
+      <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="91" y="391"/>
+        <rectangleSize height="30" width="160"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Projection_2" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="512" y="391"/>
+        <rectangleSize height="30" width="160"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="302" y="236"/>
+        <rectangleSize height="30" width="160"/>
+      </shape>
+
+      <shape expanded="true" modelObjectName="Projection_3" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="302" y="391"/>
+        <rectangleSize height="30" width="160"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

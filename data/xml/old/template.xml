@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.2" id="GET_NAVIGATION_TARGET_DATA" checkAnalyticPrivileges="false" defaultClient="$$client$$" defaultLanguage="$$language$$" hidden="true" visibility="internal" calculationScenarioType="SCRIPT_BASED" enforceSqlExecution="false" executionSemantic="UNDEFINED" scriptParametersCaseSensitive="true">
+    <origin/>
+    <descriptions defaultDescription="GET_NAVIGATION_TARGET_DATA"/>
+    <metadata changedAt="2013-08-08 11:05:14.378"/>
+    <defaultSchema schemaName="UIS"/>
+    <localVariables>
+        <variable id="IN_TAG" parameter="true">
+            <descriptions defaultDescription="IN_TAG"/>
+            <variableProperties datatype="NVARCHAR" defaultValue="" length="5000" mandatory="true">
+                <valueDomain type="empty"/>
+                <selection multiLine="false" type="SingleValue"/>
+            </variableProperties>
+        </variable>
+    </localVariables>
+    <variableMappings/>
+    <dataSources/>
+    <calculationViews>
+        <calculationView xsi:type="Calculation:SqlScriptView" id="Script_View">
+            <viewAttributes>
+                <viewAttribute datatype="VARCHAR" id="TENANT_ID" length="50"/>
+                <viewAttribute datatype="VARCHAR" id="id" length="256"/>
+            </viewAttributes>
+            <calculatedViewAttributes/>
+            <localVariable>#IN_TAG</localVariable>
+            <definition>   /********* Begin Procedure Script ************/   BEGIN    call &quot;UIS&quot;.&quot;sap.hana.uis.db/GET_NAVIGATION_URL&quot;(IN_TAG , var_out);  END /********* End Procedure Script ************/</definition>
+        </calculationView>
+    </calculationViews>
+    <logicalModel id="Script_View">
+        <attributes>
+            <attribute id="TENANT_ID">
+                <descriptions defaultDescription="tenantID"/>
+                <keyMapping columnObjectName="Script_View" columnName="TENANT_ID"/>
+            </attribute>
+            <attribute id="id">
+                <descriptions defaultDescription="id"/>
+                <keyMapping columnObjectName="Script_View" columnName="id"/>
+            </attribute>
+        </attributes>
+        <calculatedAttributes/>
+        <privateDataFoundation>
+            <tableProxies/>
+            <joins/>
+            <layout>
+                <shapes/>
+            </layout>
+        </privateDataFoundation>
+        <baseMeasures/>
+        <calculatedMeasures/>
+        <restrictedMeasures/>
+        <localDimensions/>
+    </logicalModel>
+    <layout>
+        <shapes>
+            <shape modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+                <upperLeftCorner x="40" y="85"/>
+            </shape>
+        </shapes>
+    </layout>
+</Calculation:scenario>

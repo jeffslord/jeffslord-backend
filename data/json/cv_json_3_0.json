@@ -1,0 +1,705 @@
+{
+  "Calculation:scenario": {
+    "$": {
+      "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "xmlns:Calculation": "http://www.sap.com/ndb/BiModelCalculation.ecore",
+      "id": "cv_bad",
+      "applyPrivilegeType": "NONE",
+      "dataCategory": "DIMENSION",
+      "dimensionType": "STANDARD",
+      "schemaVersion": "3.0",
+      "outputViewType": "Projection",
+      "cacheInvalidationPeriod": "NONE",
+      "enforceSqlExecution": "false"
+    },
+    "descriptions": [{ "$": { "defaultDescription": "cv_bad" } }],
+    "localVariables": [""],
+    "variableMappings": [""],
+    "dataSources": [
+      {
+        "DataSource": [
+          { "$": { "id": "cds.table1" }, "resourceUri": ["cds.table1"] },
+          { "$": { "id": "cv_bad2" }, "resourceUri": ["cv_bad2"] }
+        ]
+      }
+    ],
+    "calculationViews": [
+      {
+        "calculationView": [
+          {
+            "$": {
+              "xsi:type": "Calculation:ProjectionView",
+              "id": "Projection_1"
+            },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value1" } },
+                  { "$": { "id": "value2" } },
+                  { "$": { "id": "value3" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "cds.table1" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "$": {
+              "xsi:type": "Calculation:ProjectionView",
+              "id": "Projection_2"
+            },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value3" } },
+                  { "$": { "id": "value4" } },
+                  { "$": { "id": "value5" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "cv_bad2" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "$": {
+              "xsi:type": "Calculation:JoinView",
+              "id": "Join_1",
+              "cardinality": "CN_N",
+              "joinType": "rightOuter"
+            },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value1" } },
+                  { "$": { "id": "value2" } },
+                  { "$": { "id": "value3" } },
+                  { "$": { "id": "value4" } },
+                  { "$": { "id": "value5" } },
+                  { "$": { "hidden": "true", "id": "JOIN$value3$value3" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "Projection_1" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "JOIN$value3$value3",
+                      "source": "value3"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": { "node": "Projection_2" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "JOIN$value3$value3",
+                      "source": "value3"
+                    }
+                  }
+                ]
+              }
+            ],
+            "joinAttribute": [{ "$": { "name": "JOIN$value3$value3" } }]
+          },
+          {
+            "$": {
+              "xsi:type": "Calculation:ProjectionView",
+              "id": "Projection_3"
+            },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value1" } },
+                  { "$": { "id": "value2" } },
+                  { "$": { "id": "value3" } },
+                  { "$": { "id": "value4" } },
+                  { "$": { "id": "value5" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "Join_1" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "$": {
+              "xsi:type": "Calculation:ProjectionView",
+              "id": "Projection_4"
+            },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value1" } },
+                  { "$": { "id": "value2" } },
+                  { "$": { "id": "value3" } },
+                  { "$": { "id": "value4" } },
+                  { "$": { "id": "value5" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "Join_1" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "$": { "xsi:type": "Calculation:UnionView", "id": "Union_1" },
+            "viewAttributes": [
+              {
+                "viewAttribute": [
+                  { "$": { "id": "id" } },
+                  { "$": { "id": "value1" } },
+                  { "$": { "id": "value2" } },
+                  { "$": { "id": "value3" } },
+                  { "$": { "id": "value4" } },
+                  { "$": { "id": "value5" } }
+                ]
+              }
+            ],
+            "calculatedViewAttributes": [""],
+            "restrictedViewAttributes": [""],
+            "input": [
+              {
+                "$": { "node": "Projection_3" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": { "node": "Projection_4" },
+                "mapping": [
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "id",
+                      "source": "id"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value1",
+                      "source": "value1"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value2",
+                      "source": "value2"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value3",
+                      "source": "value3"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value4",
+                      "source": "value4"
+                    }
+                  },
+                  {
+                    "$": {
+                      "xsi:type": "Calculation:AttributeMapping",
+                      "target": "value5",
+                      "source": "value5"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "logicalModel": [
+      {
+        "$": { "id": "Union_1" },
+        "attributes": [
+          {
+            "attribute": [
+              {
+                "$": {
+                  "id": "id",
+                  "order": "1",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "id" } }],
+                "keyMapping": [
+                  { "$": { "columnObjectName": "Union_1", "columnName": "id" } }
+                ]
+              },
+              {
+                "$": {
+                  "id": "value1",
+                  "order": "2",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "value1" } }],
+                "keyMapping": [
+                  {
+                    "$": {
+                      "columnObjectName": "Union_1",
+                      "columnName": "value1"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": {
+                  "id": "value2",
+                  "order": "3",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "value2" } }],
+                "keyMapping": [
+                  {
+                    "$": {
+                      "columnObjectName": "Union_1",
+                      "columnName": "value2"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": {
+                  "id": "value3",
+                  "order": "4",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "value3" } }],
+                "keyMapping": [
+                  {
+                    "$": {
+                      "columnObjectName": "Union_1",
+                      "columnName": "value3"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": {
+                  "id": "value4",
+                  "order": "5",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "value4" } }],
+                "keyMapping": [
+                  {
+                    "$": {
+                      "columnObjectName": "Union_1",
+                      "columnName": "value4"
+                    }
+                  }
+                ]
+              },
+              {
+                "$": {
+                  "id": "value5",
+                  "order": "6",
+                  "displayAttribute": "false",
+                  "attributeHierarchyActive": "false"
+                },
+                "descriptions": [{ "$": { "defaultDescription": "value5" } }],
+                "keyMapping": [
+                  {
+                    "$": {
+                      "columnObjectName": "Union_1",
+                      "columnName": "value5"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "calculatedAttributes": [""],
+        "baseMeasures": [""],
+        "calculatedMeasures": [""],
+        "restrictedMeasures": [""]
+      }
+    ],
+    "layout": [
+      {
+        "shapes": [
+          {
+            "shape": [
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Output",
+                  "modelObjectNameSpace": "MeasureGroup"
+                },
+                "upperLeftCorner": [
+                  { "$": { "x": "243.11386177790735", "y": "112" } }
+                ],
+                "rectangleSize": [{ "$": { "width": "160" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Projection_1",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  { "$": { "x": "92", "y": "621.9999964237213" } }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Projection_2",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  { "$": { "x": "302", "y": "621.9999964237213" } }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Join_1",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  {
+                    "$": { "x": "134.3146497113139", "y": "481.9999976158142" }
+                  }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              },
+              {
+                "$": {
+                  "modelObjectName": "Projection_1",
+                  "modelObjectNameSpace": "Join_1",
+                  "modelObjectType": "JoinNodeInput"
+                },
+                "upperLeftCorner": [{ "$": { "x": "20", "y": "30" } }],
+                "rectangleSize": [{ "$": { "width": "136.0234375" } }]
+              },
+              {
+                "$": {
+                  "modelObjectName": "Projection_2",
+                  "modelObjectNameSpace": "Join_1",
+                  "modelObjectType": "JoinNodeInput"
+                },
+                "upperLeftCorner": [{ "$": { "x": "320", "y": "30" } }],
+                "rectangleSize": [{ "$": { "width": "136.0234375" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Projection_3",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  {
+                    "$": { "x": "317.6479830446473", "y": "356.9999988079071" }
+                  }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Projection_4",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  {
+                    "$": { "x": "107.64798304464726", "y": "356.9999988079071" }
+                  }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              },
+              {
+                "$": {
+                  "expanded": "true",
+                  "modelObjectName": "Union_1",
+                  "modelObjectNameSpace": "CalculationView"
+                },
+                "upperLeftCorner": [
+                  { "$": { "x": "243.11386177790735", "y": "217" } }
+                ],
+                "rectangleSize": [{ "$": { "height": "30", "width": "160" } }]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
